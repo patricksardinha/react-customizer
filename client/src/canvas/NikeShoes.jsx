@@ -6,7 +6,7 @@ import { Decal, useGLTF, useTexture } from '@react-three/drei';
 
 import state from '../store';
 
-const Shirt = () => {
+const NikeShoes = () => {
     const snap = useSnapshot(state);
     const { nodes, materials } = useGLTF('/shirt_baked.glb');
 
@@ -17,8 +17,8 @@ const Shirt = () => {
         <group>
             <mesh
                 castShadow
-                geometry={nodes.T_Shirt_male.geometry}
-                material={materials.lambert1}
+                geometry={nodes.NikeAirForceRight.geometry}
+                material={materials.MainBodyMaterial}
                 material-roughness={1}
                 dispose={null}
             >
@@ -45,4 +45,4 @@ const Shirt = () => {
     )
 }
 
-export default Shirt
+export default NikeShoes
