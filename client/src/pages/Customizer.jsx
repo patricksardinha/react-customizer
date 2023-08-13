@@ -16,7 +16,6 @@ const Customizer = () => {
 
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
-  const [generatingImg, setGeneratingImg] = useState(false);
 
   const [activeEditorTab, setActiveEditorTab] = useState('');
   const [activeFilterTab, setActiveFilterTab] = useState({
@@ -35,8 +34,6 @@ const Customizer = () => {
                 setFile={setFile}
                 readFile={readFile}
               />
-      case "aipicker":
-        return <AIPicker />   
       default:
         return null;
     }
