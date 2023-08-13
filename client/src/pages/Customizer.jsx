@@ -18,8 +18,8 @@ const Customizer = () => {
   const [prompt, setPrompt] = useState('');
   const [generatingImg, setGeneratingImg] = useState(false);
 
-  const [activeEditorTab, setactiveEditorTab] = useState('');
-  const [activeFilterTab, setactiveFilterTab] = useState({
+  const [activeEditorTab, setActiveEditorTab] = useState('');
+  const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
     stylishShirt: false
   });
@@ -64,13 +64,21 @@ const Customizer = () => {
         state.isLogoTexture = true;
         state.isFullTexture = false;
     }
+
+    // After setting the state, activeFilterTab is update
+    setActiveFilterTab((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      }
+    })
   }
 
   const readFile = (type) => {
     reader(file)
       .then((result) => {
         handleDecals(type, result);
-        setactiveEditorTab("");
+        setActiveEditorTab("");
       })
   }
 
@@ -90,7 +98,7 @@ const Customizer = () => {
                   <Tab 
                     key={tab.name}
                     tab={tab}
-                    handleClick={() => setactiveEditorTab(tab.name)}
+                    handleClick={() => setActiveEditorTab(tab.name)}
                   />
                 ))}
 
@@ -123,8 +131,8 @@ const Customizer = () => {
                 key={tab.name}
                 tab={tab}
                 isFilterTab
-                isActiveTab=""
-                handleClick={() => {}}
+                isActiveTab={activeFilterTab[tab.name]}
+                handleClick={() => handelActiveFilterTab(tab.name)}
               />
             ))}
           </motion.div>
