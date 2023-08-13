@@ -33,6 +33,7 @@ const Customizer = () => {
         return <FilePicker 
                 file={file}
                 setFile={setFile}
+                readFile={readFile}
               />
       case "aipicker":
         return <AIPicker />   
@@ -41,8 +42,36 @@ const Customizer = () => {
     }
   }
 
+  const handleDecals = (type, result) => {
+    const decalType = DecalTypes[type];
+
+    state[decalType.stateProperty] = result;
+
+    if(!activeFilterTab[decalType.filterTab]) {
+      handelActiveFilterTab(decalType.filterTabs)
+    }
+  }
+
+  const handelActiveFilterTab = (tabName) => {
+    switch (tabName) {
+      case "logoShirt":
+        state.isLogoTexture = !activeFilterTab[tabName];
+        break;
+      case "stylishShirt":
+        state.isFullTexture = !activeFilterTab[tabName];
+        break;
+      default:
+        state.isLogoTexture = true;
+        state.isFullTexture = false;
+    }
+  }
+
   const readFile = (type) => {
-    return
+    reader(file)
+      .then((result) => {
+        handleDecals(type, result);
+        setactiveEditorTab("");
+      })
   }
 
   return (
