@@ -10,7 +10,7 @@ const ColorPicker = ({ handleExitClick }) => {
   const snap = useSnapshot(state);
 
   return (
-    <div className='absolute left-full ml-3'>
+    <div className='flex absolute left-full ml-3'>
       <SketchPicker 
         color={snap.color}
         disableAlpha
