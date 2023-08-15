@@ -1,8 +1,9 @@
 import React from 'react'
 
 import CustomButton from './CustomButton'
+import CustomExitButton from './CustomExitButton'
 
-const FilePicker = ({ file, setFile, readFile }) => {
+const FilePicker = ({ file, setFile, readFile, handleExitClick }) => {
   return (
     <div className='filepicker-container'>
       <div className='flex-1 flex flex-col'>
@@ -36,6 +37,10 @@ const FilePicker = ({ file, setFile, readFile }) => {
           customStyles='text-xs'        
         />
       </div>
+
+      <CustomExitButton 
+        handleClick={handleExitClick}
+      />
     </div>
   )
 }

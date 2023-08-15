@@ -27,12 +27,15 @@ const Customizer = () => {
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
-        return <ColorPicker />
+        return <ColorPicker
+                handleExitClick={() => setActiveEditorTab("")}
+               />
       case "filepicker":
         return <FilePicker 
                 file={file}
                 setFile={setFile}
                 readFile={readFile}
+                handleExitClick={() => setActiveEditorTab("")}
               />
       default:
         return null;

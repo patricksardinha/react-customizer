@@ -4,7 +4,9 @@ import { useSnapshot } from 'valtio';
 
 import state from '../store';
 
-const ColorPicker = () => {
+import CustomExitButton from './CustomExitButton'
+
+const ColorPicker = ({ handleExitClick }) => {
   const snap = useSnapshot(state);
 
   return (
@@ -27,6 +29,9 @@ const ColorPicker = () => {
           "#5F123D",
         ]}
         onChange={(color) => state.color = color.hex}
+      />
+      <CustomExitButton 
+        handleClick={handleExitClick}
       />
     </div>
   )
