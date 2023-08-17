@@ -39,8 +39,7 @@ const Home = () => {
                handleClick={() => 
                 (
                   state.intro = false,
-                  state.selector = true,
-                  state.customizer = false
+                  state.selector = true
                 )}
                customStyles="w-fit m-10 px-4 py-2.5 font-bold text-sm"
             />
