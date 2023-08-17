@@ -2,9 +2,14 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import { headContainerAnimation, headContentAnimation, headTextAnimation, slideAnimation, fadeAnimation } from '../config/motion';
+import { Canvas } from '@react-three/fiber';
+import { Environment, Center } from '@react-three/drei';
+import Backdrop from '../canvas/Backdrop'
+import CameraRig from '../canvas/CameraRig'
 
 import state from '../store';
 import { CustomButton } from '../components';
+import Shirt from '../canvas/Shirt';
 
 const ItemSelection = () => {
     // One current snapshot of that state
@@ -24,8 +29,23 @@ const ItemSelection = () => {
               )}  
           >
             <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">T-Shirt</h5>
+              <p className="font-normal text-gray-700 dark:text-gray-400">Customize the t-shirt of your dreams.</p>
+              <div>
+                <Canvas
+                  camera={{ position: [0, 0, 0], fov: 25 }}
+                  gl={{ preserveDrawingBuffer: true }}
+                  className='w-10 h-10 transition-all ease-in'
+                >
+                  <ambientLight intensity={0.5} />
+                  <Environment preset='city' />
+                  <CameraRig>
+                    <Center>
+                      <Shirt />
+                    </Center>
+                  </CameraRig>
+                </Canvas>
+              </div>
             </a>
           </motion.div>
 
