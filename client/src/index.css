@@ -28,11 +28,11 @@ html {
 }
 
 .home-content {
-  @apply flex-1 xl:justify-center justify-start items-center p-28 flex flex-col gap-10;
+  @apply flex-1 xl:justify-center justify-start items-center text-center p-10 sm:p-24 flex flex-col gap-10;
 }
 
 .head-text {
-  @apply xl:text-[10rem] text-[6rem] xl:leading-[11rem] leading-[7rem] font-black text-black;
+  @apply xl:text-[6rem] text-[6rem] max-[420px]:text-[4rem] xl:leading-[7rem] leading-[7rem] max-[420px]:leading-[4rem] font-black text-black;
 }
 
 .download-btn {

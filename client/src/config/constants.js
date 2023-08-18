@@ -11,6 +11,14 @@ export const EditorTabs = [
   }
 ];
 
+export const customizableItems = [
+  {
+    itemTitle: "T-shirt",
+    itemDescription: "Customize the t-shirt of your dreams.",
+    itemModel: "tshirt"
+  }
+];
+
 export const FilterTabs = [
   {
     name: "logoShirt",
