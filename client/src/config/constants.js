@@ -15,7 +15,14 @@ export const customizableItems = [
   {
     itemTitle: "T-shirt",
     itemDescription: "Customize the t-shirt of your dreams.",
-    itemModel: "tshirt"
+    itemModel: "tshirt",
+    fov: 25
+  },
+  {
+    itemTitle: "Shoes",
+    itemDescription: "Have you ever found the perfect shoes? Design them by yourself!",
+    itemModel: "shoes",
+    fov: 50
   }
 ];
 

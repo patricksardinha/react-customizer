@@ -3,12 +3,15 @@ import { Environment, Center } from '@react-three/drei';
 import { useSnapshot } from 'valtio';
 
 import Shirt from './Shirt'
+import Item from './Item';
 import Backdrop from './Backdrop'
 import CameraRig from './CameraRig'
-import NikeShoes from './NikeShoes'
+import Shoes from './Shoes'
 
 import state from '../store';
 import { AnimatePresence } from 'framer-motion';
+
+import { customizableItems } from '../config/constants';
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
@@ -17,7 +20,7 @@ const CanvasModel = () => {
     <AnimatePresence>
       { snap.customizer && (<Canvas
                               shadows
-                              camera={{ position: [0, 0, 0], fov: 25 }}
+                              camera={{ position: [0, 0, 0], fov: customizableItems.fov }}
                               gl={{ preserveDrawingBuffer: true }}
                               className='w-full max-w-full h-full transition-all ease-in'
                             >
@@ -27,7 +30,7 @@ const CanvasModel = () => {
                               <CameraRig>
                                 <Backdrop />
                                 <Center>
-                                  <Shirt />
+                                  <Item model={snap.currentItem} />
                                 </Center>
                               </CameraRig>
                             </Canvas>

@@ -29,7 +29,8 @@ const ItemSelection = () => {
       onClick={() => 
         (
           state.selector = false,
-          state.customizer = true
+          state.customizer = true,
+          state.currentItem = item.itemModel
         )}  
     >
       <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -37,7 +38,7 @@ const ItemSelection = () => {
         <p className="font-normal text-gray-700 dark:text-gray-400">{item.itemDescription}</p>
         <div>
           <Canvas
-            camera={{ position: [0, 0, 0], fov: 25 }}
+            camera={{ position: [0, 0, 0], fov: item.fov }}
             gl={{ preserveDrawingBuffer: true }}
             className='w-10 h-10 transition-all ease-in'
           >
