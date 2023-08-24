@@ -14,7 +14,7 @@ const Shoes = () => {
     const fullTexture = useTexture(snap.fullDecal);
 
     // Apply the color smoothly
-    //useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
+    useFrame((state, delta) => easing.dampC(materials.mesh.color, snap.color, 0.25, delta));
 
     // Tracks state changes
     const stateStringShoes = JSON.stringify(snap);

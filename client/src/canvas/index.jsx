@@ -20,7 +20,7 @@ const CanvasModel = () => {
     <AnimatePresence>
       { snap.customizer && (<Canvas
                               shadows
-                              camera={{ position: [0, 0, 0], fov: customizableItems.fov }}
+                              camera={{ position: [0, 0, 0], fov: snap.currentFov }}
                               gl={{ preserveDrawingBuffer: true }}
                               className='w-full max-w-full h-full transition-all ease-in'
                             >

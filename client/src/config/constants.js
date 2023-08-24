@@ -22,7 +22,7 @@ export const customizableItems = [
     itemTitle: "Shoes",
     itemDescription: "Have you ever found the perfect shoes? Design them by yourself!",
     itemModel: "shoes",
-    fov: 50
+    fov: 60
   }
 ];
 
