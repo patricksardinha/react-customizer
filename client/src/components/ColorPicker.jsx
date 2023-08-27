@@ -9,6 +9,19 @@ import CustomExitButton from './CustomExitButton'
 const ColorPicker = ({ handleExitClick }) => {
   const snap = useSnapshot(state);
 
+  const setItemColor = (item, newColor) => {
+    switch (item) {
+      case 'tshirt':
+        state.tshirtColor = newColor.hex
+        break;
+      case 'shoes':
+        state.shoesColor = newColor.hex 
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <div className='flex absolute left-full ml-3'>
       <SketchPicker 
@@ -28,7 +41,7 @@ const ColorPicker = ({ handleExitClick }) => {
           "#512314",
           "#5F123D",
         ]}
-        onChange={(color) => state.color = color.hex}
+        onChange={(color) => setItemColor(snap.currentItem, color)}
       />
       <CustomExitButton 
         handleClick={handleExitClick}

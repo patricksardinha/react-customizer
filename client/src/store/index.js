@@ -9,6 +9,8 @@ const state = proxy({
   currentFov: 25,
 
   color: '#EFBD48',
+  tshirtColor: '#EFBD48',
+  shoesColor: '#EFBD48',
 
   isLogoTexture: true,
   isFullTexture: false,
